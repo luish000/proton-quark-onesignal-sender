@@ -22,6 +22,7 @@ class PushClient {
   setAsBackground() {
     this.notification.android_background_data = true
     this.notification.content_available = true
+    return this
   }
 
   setContents(contents) {
@@ -54,6 +55,7 @@ class PushClient {
     }
     return request(opts)
   }
+
 
   _buildAuthorizationHeaders() {
     return {
