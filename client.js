@@ -63,5 +63,4 @@ class PushClient {
   }
 
 }
-
 module.exports = PushClient
