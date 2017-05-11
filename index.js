@@ -19,13 +19,19 @@ class OneSignalQuark extends Quark {
   }
 
   validate() {
-    if (!this.authKey || !this.restApiKey || !this.appId) {
-      throw new Error(`Some keys are not defined: Rest api key -> ${this.restApiKey}, Auth Key -> ${this.authKey}, App ID -> ${this.appId}`)
-    }
+    return new Promise((resolve, reject) => {
+      if (!this.authKey || !this.restApiKey || !this.appId) {
+        reject(`Some keys are not defined: Rest api key -> ${this.restApiKey}, Auth Key -> ${this.authKey}, App ID -> ${this.appId}`)
+      }
+      resolve(true)
+    })
   }
 
   initialize() {
-    global.pushClient = new PushClient(this.authKey, this.restApiKey, this.appId)
+    return new Promise(resolve => {
+      global.pushClient = new PushClient(this.authKey, this.restApiKey, this.appId)
+      resolve(true)
+    })
   }
 
   get authKey() {

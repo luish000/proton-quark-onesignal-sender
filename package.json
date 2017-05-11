@@ -1,6 +1,6 @@
 {
   "name": "proton-quark-onesignal-sender",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A Quark for send push notifications using onesignal as provider",
   "main": "index.js",
   "scripts": {
